@@ -15,4 +15,16 @@
     margin: 20px;
     padding: 20px;
     display: inline-block;
+    background-color: slateblue;
 }
+.buttonText {
+    font-weight: bold;
+    color: white;
+    background-color: slateblue;
+    border-color: slateblue;
+
+}
+ .item:hover {
+     background-color: mediumslateblue;
+     cursor: grab;
+ }
