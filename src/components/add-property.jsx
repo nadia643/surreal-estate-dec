@@ -9,6 +9,9 @@ class AddProperty extends React.Component {
         title: '',
         type: 'Flat',
         city: 'Manchester',
+        bedrooms: '',
+        bathrooms: '',
+        price: '',
       },
     };
   }
@@ -55,8 +58,10 @@ class AddProperty extends React.Component {
             name="bedrooms"
             value={this.state.fields.bedrooms}
             onChange={this.handleFieldChange}
-            placeholder="bedrooms"
-          />          {' '}
+            placeholder="Bedrooms"
+          />
+{' '}
+{' '}
         </div>
         <div className="bathrooms">
           {' '}
@@ -64,8 +69,10 @@ class AddProperty extends React.Component {
             name="bathrooms"
             value={this.state.fields.bathrooms}
             onChange={this.handleFieldChange}
-            placeholder="bathrooms"
-          />          {' '}
+            placeholder="Bathrooms"
+          />
+{' '}
+{' '}
         </div>
         <div className="price">
           {' '}
@@ -73,8 +80,18 @@ class AddProperty extends React.Component {
             name="price"
             value={this.state.fields.price}
             onChange={this.handleFieldChange}
-            placeholder="price"
-          />          {' '}
+            placeholder="Price"
+          />
+          <div className="email">
+            <input
+              name="email"
+              placeholder="Email Address"
+              value={this.state.fields.email}
+              onChange={this.handleFieldChange}
+            />
+          </div>
+{' '}
+{' '}
         </div>
         <div className="AddProperty">
           <form onSubmit={this.handleAddProperty}>
