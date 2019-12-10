@@ -9,7 +9,7 @@ class AddProperty extends React.Component {
       fields: {
         title: '',
         type: 'Flat',
-        city: 'Leeds',
+        city: 'Manchester',
         bedrooms: '',
         bathrooms: '',
         price: '',
@@ -22,12 +22,18 @@ class AddProperty extends React.Component {
     this.setState({});
     event.preventDefault();
     // console.log(this.state.fields);
-      axios.post('/user', {
-    firstName: 'Fred',
-    lastName: 'Flintstone'
+      axios.post('http://localhost:3000/api/v1/PropertyListing', {
+        title: this.state.fields.title,
+        type: this.state.fields.type,
+        city: this.state.fields.city,
+        bedrooms: this.state.fields.bedrooms,
+        bathrooms: this.state.fields.bathrooms,
+        price: this.state.fields.price,
+        email: this.state.fields.email,
   })
+
   .then(function (response) {
-    console.log(response);
+    console.log("Property Added");
   })
   .catch(function (error) {
     console.log("You have made an error");
