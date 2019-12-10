@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/add-property.css';
+const axios = require('axios').default;
 
 class AddProperty extends React.Component {
   constructor(props) {
@@ -8,18 +9,32 @@ class AddProperty extends React.Component {
       fields: {
         title: '',
         type: 'Flat',
-        city: 'Manchester',
+        city: 'Leeds',
         bedrooms: '',
         bathrooms: '',
         price: '',
+        email: '',
       },
     };
   }
 
   handleAddProperty = event => {
+    this.setState({});
     event.preventDefault();
     // console.log(this.state.fields);
+      axios.post('/user', {
+    firstName: 'Fred',
+    lastName: 'Flintstone'
+  })
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log("You have made an error");
+  });
+
   };
+
 
   handleFieldChange = event => {
     this.setState({
@@ -45,7 +60,7 @@ class AddProperty extends React.Component {
           </select>
         </div>
         <div className="city">
-          <select name="type" value={this.state.fields.type} onChange={this.handleFieldChange}>
+          <select name="city" value={this.state.fields.city} onChange={this.handleFieldChange}>
             <option value="Manchester">Manchester</option>
             <option value="Leeds">Leeds</option>
             <option value="Sheffield">Sheffield</option>
@@ -59,9 +74,7 @@ class AddProperty extends React.Component {
             value={this.state.fields.bedrooms}
             onChange={this.handleFieldChange}
             placeholder="Bedrooms"
-          />
-{' '}
-{' '}
+          />          {' '}
         </div>
         <div className="bathrooms">
           {' '}
@@ -70,9 +83,7 @@ class AddProperty extends React.Component {
             value={this.state.fields.bathrooms}
             onChange={this.handleFieldChange}
             placeholder="Bathrooms"
-          />
-{' '}
-{' '}
+          />          {' '}
         </div>
         <div className="price">
           {' '}
@@ -89,9 +100,7 @@ class AddProperty extends React.Component {
               value={this.state.fields.email}
               onChange={this.handleFieldChange}
             />
-          </div>
-{' '}
-{' '}
+          </div>          {' '}
         </div>
         <div className="AddProperty">
           <form onSubmit={this.handleAddProperty}>
