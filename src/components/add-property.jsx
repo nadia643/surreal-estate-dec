@@ -64,7 +64,7 @@ class AddProperty extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="WholeForm">
         {this.state.isSuccess && <Alert message={this.state.alertMessage} success />}
         {this.state.isError && <Alert message={this.state.alertMessage} />}
         <div className="type">
