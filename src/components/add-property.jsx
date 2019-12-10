@@ -64,9 +64,10 @@ class AddProperty extends React.Component {
 
   render() {
     return (
-      <div className="WholeForm">
+      <div>
         {this.state.isSuccess && <Alert message={this.state.alertMessage} success />}
         {this.state.isError && <Alert message={this.state.alertMessage} />}
+        <div className="WholeForm">
         <div className="type">
           <select name="type" value={this.state.fields.type} onChange={this.handleFieldChange}>
             <option value="Flat">Flat</option>
@@ -120,6 +121,7 @@ class AddProperty extends React.Component {
               onChange={this.handleFieldChange}
             />
           </div>          {' '}
+        </div>
         </div>
         <div className="AddProperty">
           <form onSubmit={this.handleAddProperty}>
