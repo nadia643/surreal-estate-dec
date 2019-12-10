@@ -1,3 +1,4 @@
+import Alert from '../components/alert';
 import React from 'react';
 import '../styles/add-property.css';
 const axios = require('axios').default;
@@ -15,11 +16,18 @@ class AddProperty extends React.Component {
         price: '',
         email: '',
       },
+      alertMessage: '',
+      isSuccess: false,
+      isError: false,
     };
   }
 
   handleAddProperty = event => {
-    this.setState({});
+    this.setState({
+      alertMessage: '',
+      isSuccess: false,
+      isError: false,
+    });
     event.preventDefault();
     // console.log(this.state.fields);
       axios.post('http://localhost:3000/api/v1/PropertyListing', {
@@ -32,13 +40,16 @@ class AddProperty extends React.Component {
         email: this.state.fields.email,
   })
 
-  .then(function (response) {
-    console.log("Property Added");
-  })
-  .catch(function (error) {
-    console.log("You have made an error");
-  });
-
+      .then(() => this.setState({
+        isSuccess: true,
+        alertMessage: 'Property added.',
+      }))
+      .catch(() => {
+        this.setState({
+          alertMessage: 'Server error. Please try again later.',
+          isError: true,
+        });
+      });
   };
 
 
@@ -54,6 +65,8 @@ class AddProperty extends React.Component {
   render() {
     return (
       <div>
+        {this.state.isSuccess && <Alert message={this.state.alertMessage} success />}
+        {this.state.isError && <Alert message={this.state.alertMessage} />}
         <div className="type">
           <select name="type" value={this.state.fields.type} onChange={this.handleFieldChange}>
             <option value="Flat">Flat</option>
@@ -115,7 +128,6 @@ class AddProperty extends React.Component {
               <button type="submit">Add</button>
             </div>
           </form>
-          <h1> Add Property Page </h1>
         </div>
       </div>
     );
