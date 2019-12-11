@@ -5,7 +5,6 @@ import './styles/app.css';
 import NavBar from './components/navbar';
 import Properties from './components/properties';
 import AddProperty from './components/add-property';
-import Alert from './components/alert';
 import PropertyCard from './components/property-card';
 
 const App = () => {
@@ -13,7 +12,6 @@ const App = () => {
     <div className="app">
       <NavBar />
       <AddProperty />
-      <Alert />
       <PropertyCard />
       <Switch>
           <Route exact path="/" component={Properties} /> 

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropertyCard from './property-card';
 import '../styles/properties.css';
+import '../styles/property-card.css';
 
 const axios = require('axios').default;
 
@@ -16,9 +17,13 @@ class Properties extends React.Component {
 
   componentDidMount() {
     axios.get('http://localhost:3000/api/v1/PropertyListing')
-    .then(response => this.setState({ properties: response.data }))
+    .then(response => {
+    this.setState({ properties: response.data })
+    console.log(this.state.properties);
+    })
     .catch(err => console.error(err));
   }
+
 
   componentDidUpdate(prevProps) {
     const { location: { search } } = this.props;
@@ -45,6 +50,7 @@ class Properties extends React.Component {
           <Link to={'/?query={"city": "Liverpool"}'}>Liverpool</Link>
         </div>
         {this.state.properties.map(property => (
+        <div key={property._id} className="col">
           <PropertyCard
             key={property._id}
             price={property.price}
@@ -55,6 +61,7 @@ class Properties extends React.Component {
             email={property.email}
             city={property.city}
           />
+          </div>
         ))}
       </div>
     );

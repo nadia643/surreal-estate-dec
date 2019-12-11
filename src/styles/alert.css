@@ -1,9 +1,13 @@
-/* .Alert {
+.Alert {
     background-color: red;
     padding: 10px;
     color: black;
     border-style: double;
-} */
+    transition: border-width 0.6s linear;
+}
+.Alert:hover {
+    border-width: 10px; 
+}
 
 .Alert.success {
     background-color: green;
@@ -11,3 +15,4 @@
     color: black;
     border-style: double;
 }
+

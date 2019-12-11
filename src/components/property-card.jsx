@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/property-card.css';
 
-const PropertyCard = props => {
+const PropertyCard = ({ _id, title, type, price, city, bedrooms, bathrooms, email }) => {
     return (
     <div className="property-card">
       <div id="picture">
@@ -13,34 +13,24 @@ const PropertyCard = props => {
           alt="small house img should be here"
         />
       </div> <br />
-      <div className="title">Title: {props.title}</div>
+      <div className="title">Title: {title}</div>
       <br />
-      <div className="type">Type: {props.type}</div>
+      <div className="type">Type: {type}</div>
       <br />
-      <div className="price">
-        £:
-        {props.price}
+      <div className="price">£:{price}
       </div>
       <br />
-      <div className="location">
-        Location:
-        {props.city}
+      <div className="location">Location:{city}
       </div>
       <br />
-      <div className="bedrooms">
-Bedrooms:
-{props.bedrooms}
- </div>
+      <div className="bedrooms">Bedrooms: {bedrooms}
+      </div>
       <br />
-      <div className="bathrooms">
-Bathrooms:
-{props.bathrooms}
- </div>
+      <div className="bathrooms">Bathrooms:{bathrooms}
+       </div>
       <br />
-      <div className="contact">
-Email:
-{props.email}
- </div>
+      <div className="contact">Email:{email}
+      </div>
     </div>
   );
 };
