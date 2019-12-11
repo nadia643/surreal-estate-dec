@@ -24,14 +24,15 @@ class AddProperty extends React.Component {
   }
 
   handleAddProperty = event => {
-    this.setState({
-      alertMessage: '',
-      isSuccess: false,
-      isError: false,
-    });
     event.preventDefault();
-    // console.log(this.state.fields);
-    axios.post('http://localhost:3000/api/v1/PropertyListing', {
+    console.log(this.state.fields);
+    // this.setState({
+    //   alertMessage: '',
+    //   isSuccess: false,
+    //   isError: false,
+    // });
+    axios
+      .post('http://localhost:3000/api/v1/PropertyListing', {
         title: this.state.fields.title,
         type: this.state.fields.type,
         city: this.state.fields.city,
@@ -96,8 +97,7 @@ class AddProperty extends React.Component {
               value={this.state.fields.bedrooms}
               onChange={this.handleFieldChange}
               placeholder="Bedrooms"
-            />
-{' '}
+            />            {' '}
           </div>
           <div className="bathrooms">
             {' '}
@@ -106,8 +106,7 @@ class AddProperty extends React.Component {
               value={this.state.fields.bathrooms}
               onChange={this.handleFieldChange}
               placeholder="Bathrooms"
-            />
-{' '}
+            />            {' '}
           </div>
           <div className="price">
             {' '}
@@ -124,8 +123,7 @@ class AddProperty extends React.Component {
                 value={this.state.fields.email}
                 onChange={this.handleFieldChange}
               />
-            </div>
-{' '}
+            </div>            {' '}
           </div>
         </div>
         <div className="AddProperty">

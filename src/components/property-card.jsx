@@ -1,12 +1,19 @@
 import React from 'react';
 import '../styles/property-card.css';
+import './add-property';
 
 const PropertyCard = props => {
   return (
     <div className="property-card">
       <span id="title">{props.title}</span>
       <div id="picture">
-        <img id="house" src="https://cdn1.iconfinder.com/data/icons/navigation-7/32/house-01-512.png" width="60" height="60" alt="house" />
+        <img
+          id="house"
+          src="https://cdn1.iconfinder.com/data/icons/navigation-7/32/house-01-512.png"
+          width="60"
+          height="60"
+          alt="house"
+        />
       </div>
       <span>{props.type}</span>
       <br />
