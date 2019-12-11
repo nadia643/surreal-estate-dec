@@ -2,10 +2,8 @@ import React from 'react';
 import '../styles/property-card.css';
 
 const PropertyCard = props => {
-  const { type, price } = props;
-  return (
+    return (
     <div className="property-card">
-      <span id="title">{props.title}</span>
       <div id="picture">
         <img
           id="house"
@@ -14,39 +12,35 @@ const PropertyCard = props => {
           height="80"
           alt="small house img should be here"
         />
-      </div>
-      <span>{type}</span>
+      </div> <br />
+      <div className="title">Title: {props.title}</div>
       <br />
-      <span>
+      <div className="type">Type: {props.type}</div>
+      <br />
+      <div className="price">
         £:
-        {price}
-      </span>
+        {props.price}
+      </div>
       <br />
-      <span>
+      <div className="location">
         Location:
         {props.city}
-      </span>
+      </div>
       <br />
-      <span>
+      <div className="bedrooms">
 Bedrooms:
-{' '}
 {props.bedrooms}
-{' '}
- </span>
+ </div>
       <br />
-      <span>
+      <div className="bathrooms">
 Bathrooms:
-{' '}
 {props.bathrooms}
-{' '}
- </span>
+ </div>
       <br />
-      <span>
-Contact:
-{' '}
+      <div className="contact">
+Email:
 {props.email}
-{' '}
- </span>
+ </div>
     </div>
   );
 };

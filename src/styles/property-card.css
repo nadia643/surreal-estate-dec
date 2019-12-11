@@ -4,12 +4,12 @@
     height: auto;
     font-size: 18px;
     padding: 5px;
-    background-color: white;
+    background-color: yellow;
     border: 3px solid darkblue;
     overflow-wrap: break-word;
 }
 
-.type{
+/* .type{
     font-style: bold;
     font-size: 32px;
-}
+} */

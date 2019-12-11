@@ -10,25 +10,26 @@ class Properties extends React.Component {
     super(props);
     this.state = {
       properties: [],
+      error: false,
     };
   }
 
   componentDidMount() {
-    axios
-      .get('http://localhost:3000/api/v1/PropertyListing')
-      .then(({ data }) => this.setState({ properties: data }));
+    axios.get('http://localhost:3000/api/v1/PropertyListing')
+    .then(response => this.setState({ properties: response.data }))
+    .catch(err => console.error(err));
   }
 
   componentDidUpdate(prevProps) {
-    const { search } = this.props.location;
+    const { location: { search } } = this.props;
 
-    if (prevProps.location.search !== search) {
-      axios
-        .get(`http://localhost:3000/api/v1/PropertyListing${search}`)
+    if (search !== prevProps.location.search) {
+      axios.get(`http://localhost:3000/api/v1/PropertyListing${search}`)
         .then(({ data: properties }) => this.setState({ properties }))
         .catch(err => console.error(err));
     }
   }
+
 
   render() {
     return (
@@ -45,7 +46,7 @@ class Properties extends React.Component {
         </div>
         {this.state.properties.map(property => (
           <PropertyCard
-            key={property.id}
+            key={property._id}
             price={property.price}
             title={property.title}
             bathrooms={property.bathrooms}

@@ -28,6 +28,7 @@ class AddProperty extends React.Component {
       fields: { title, type, city, bedrooms, bathrooms, price, email },
     } = this.state;
     event.preventDefault();
+    console.log(this.state.fields);
 
     this.setState({
       alertMessage: '',
@@ -76,10 +77,11 @@ class AddProperty extends React.Component {
     const { isSuccess, isError, alertMessage } = this.state;
     return (
       <div className="AddProperty">
-        <form onSubmit={this.handleAddProperty}>
-          <input name="title" value={title} onChange={this.handleFieldChange} placeholder="Title" />
+      <h2> Add Property Page </h2>
           {isSuccess && <Alert message={alertMessage} success />}
           {isError && <Alert message={alertMessage} />}
+          <form onSubmit={this.handleAddProperty}>
+          <input name="title" value={title} onChange={this.handleFieldChange} placeholder="Title" />
           <div className="WholeForm">
             <div className="type">
               <select name="type" value={type} onChange={this.handleFieldChange}>
@@ -102,25 +104,22 @@ class AddProperty extends React.Component {
               </select>
             </div>
             <div className="bedrooms">
-              {' '}
               <input
                 name="bedrooms"
                 value={bedrooms}
                 onChange={this.handleFieldChange}
                 placeholder="Bedrooms"
-              />              {' '}
+              />
             </div>
             <div className="bathrooms">
-              {' '}
               <input
                 name="bathrooms"
                 value={bathrooms}
                 onChange={this.handleFieldChange}
                 placeholder="Bathrooms"
-              />              {' '}
+              />
             </div>
             <div className="price">
-              {' '}
               <input
                 name="price"
                 value={price}
@@ -134,7 +133,7 @@ class AddProperty extends React.Component {
                   value={email}
                   onChange={this.handleFieldChange}
                 />
-              </div>              {' '}
+              </div>
             </div>
           </div>
           <div className="button">

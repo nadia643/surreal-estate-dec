@@ -16,8 +16,8 @@ const App = () => {
       <Alert />
       <PropertyCard />
       <Switch>
-        <Route exact path="/" render={props => <Properties {...props} />} />{' '}
-        <Route exact path="/add-property" component={AddProperty} />
+          <Route exact path="/" component={Properties} /> 
+          <Route exact path="/add-property" component={AddProperty} />
       </Switch>
     </div>
   );
