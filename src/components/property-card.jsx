@@ -1,31 +1,52 @@
 import React from 'react';
 import '../styles/property-card.css';
-import './add-property';
 
 const PropertyCard = props => {
+  const { type, price } = props;
   return (
     <div className="property-card">
       <span id="title">{props.title}</span>
       <div id="picture">
         <img
           id="house"
-          src="https://cdn1.iconfinder.com/data/icons/navigation-7/32/house-01-512.png"
-          width="60"
-          height="60"
-          alt="house"
+          src="../images/171-1716279_homes-vector-tiny-house-small-house-clip-art.png.jpeg"
+          width="80"
+          height="80"
+          alt="small house img should be here"
         />
       </div>
-      <span>{props.type}</span>
+      <span>{type}</span>
       <br />
-      <span>£:{props.price}</span>
+      <span>
+        £:
+        {price}
+      </span>
       <br />
-      <span>Location:{props.city}</span>
+      <span>
+        Location:
+        {props.city}
+      </span>
       <br />
-      <span>Bedrooms: {props.bedrooms}</span>
+      <span>
+Bedrooms:
+{' '}
+{props.bedrooms}
+{' '}
+ </span>
       <br />
-      <span>Bathrooms: {props.bathrooms}</span>
+      <span>
+Bathrooms:
+{' '}
+{props.bathrooms}
+{' '}
+ </span>
       <br />
-      <span>Contact: {props.email}</span>
+      <span>
+Contact:
+{' '}
+{props.email}
+{' '}
+ </span>
     </div>
   );
 };
