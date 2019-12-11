@@ -6,6 +6,7 @@ import NavBar from './components/navbar';
 import Properties from './components/properties';
 import AddProperty from './components/add-property';
 import Alert from './components/alert';
+import PropertyCard from './components/property-card';
 
 const App = () => {
   return (
@@ -13,8 +14,9 @@ const App = () => {
       <NavBar />
       <AddProperty />
       <Alert />
+      <PropertyCard />
       <Switch>
-        <Route exact path="/" component={Properties} />
+        <Route exact path="/" render={props => <Properties {...props} />} />{' '}
         <Route exact path="/add-property" component={AddProperty} />
       </Switch>
     </div>

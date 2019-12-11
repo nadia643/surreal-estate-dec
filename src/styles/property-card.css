@@ -1,0 +1,26 @@
+.property-card{
+    margin: 5px;
+    width: 33%;
+    height: 200px;
+    font-size: 18px;
+    padding: 5px;
+    background-color: white;
+    border: 3px solid darkcyan;
+    overflow-wrap: break-word;
+    border-radius: 20px;
+}
+
+.type{
+    font-style: bold;
+    font-size: 32px;
+}
+.Properties {
+    padding: 0.5rem;
+  }
+  
+  .Properties > .col {
+    display: inline-block;
+    width: 33.33%;
+    padding: 0.5rem;
+    box-sizing: border-box;
+  }
