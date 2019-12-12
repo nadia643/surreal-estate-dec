@@ -31,9 +31,10 @@ class AddProperty extends React.Component {
     console.log(this.state.fields);
 
     this.setState({
-      alertMessage: '',
       isSuccess: false,
       isError: false,
+      alertMessage: '',
+
     });
     axios
       .post('http://localhost:3000/api/v1/PropertyListing', {

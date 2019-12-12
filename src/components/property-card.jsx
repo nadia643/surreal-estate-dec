@@ -1,8 +1,10 @@
 import React from 'react';
 import '../styles/property-card.css';
 
-const PropertyCard = ({ _id, title, type, price, city, bedrooms, bathrooms, email }) => {
-    return (
+const PropertyCard = ({ 
+  _id, title, type, price, city, bedrooms, bathrooms, email,
+  }) => {
+  return (
     <div className="property-card">
       <div id="picture">
         <img

@@ -17,23 +17,19 @@ class Properties extends React.Component {
 
   componentDidMount() {
     axios.get('http://localhost:3000/api/v1/PropertyListing')
-    .then(response => {
-    this.setState({ properties: response.data })
-    console.log(this.state.properties);
-    })
-    .catch(err => console.error(err));
+      .then(({ data: properties }) => this.setState({ properties }))
+      .catch(err => console.error(err));
   }
-
 
   componentDidUpdate(prevProps) {
-    const { location: { search } } = this.props;
-
-    if (search !== prevProps.location.search) {
-      axios.get(`http://localhost:3000/api/v1/PropertyListing${search}`)
-        .then(({ data: properties }) => this.setState({ properties }))
-        .catch(err => console.error(err));
-    }
+    const { search } = this.props.location;
+    
+    if (prevProps.location.search !== search) {
+    axios.get(`http://localhost:3000/api/v1/PropertyListing${search}`)
+      .then(({ data: properties }) => this.setState({ properties }))
+      .catch(err => console.error(err));
   }
+}
 
 
   render() {
@@ -49,20 +45,22 @@ class Properties extends React.Component {
           <br />
           <Link to={'/?query={"city": "Liverpool"}'}>Liverpool</Link>
         </div>
+        <div class="main"> 
         {this.state.properties.map(property => (
-        <div key={property._id} className="col">
+        <div key={property._id} className="property">
           <PropertyCard
             key={property._id}
-            price={property.price}
             title={property.title}
-            bathrooms={property.bathrooms}
-            bedrooms={property.bedrooms}
             type={property.type}
-            email={property.email}
+            price={property.price}
             city={property.city}
+            bedrooms={property.bedrooms}
+            bathrooms={property.bathrooms}
+            email={property.email}
           />
           </div>
         ))}
+        </div>
       </div>
     );
   }
